@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+    <body>
+
+    <main class="movie-details">
+
+        <img id="movie-poster" src="" alt="Movie Poster">
+
+        <div class="movie-info">
+
+            <h1 id="movie-title"></h1>
+
+            <p><strong>Year:</strong> <span id="movie-year"></span></p>
+            <p><strong>Genre:</strong> <span id="movie-genre"></span></p>
+            <p><strong>Rating:</strong> <span id="movie-rating"></span></p>
+
+            <p id="movie-description"></p>
+  
+            <button id="watch-trailer">
+              🎬Watch Trailer
+            </button>
+        </div>
+
+    </main>
+
+    <h2>Cast</h2>
+    <div id="cast-container"></div>
+
+
+    <div id="trailer-modal">
+    <div class="trailer-box">
+
+        <button id="close-trailer">
+            ✕
+        </button>
+
+        <iframe id="trailer-frame" src="" allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+    <script src="details.js"></script>
+
+</body>
+
+</html>
