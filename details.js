@@ -15,6 +15,8 @@ const year = document.getElementById("movie-year");
 const genre = document.getElementById("movie-genre");
 const rating = document.getElementById("movie-rating");
 const description = document.getElementById("movie-description");
+const moreBtn = document.getElementById('more-btn');
+
 
 async function getMovieDetails() {
 
@@ -24,13 +26,35 @@ async function getMovieDetails() {
 
     const movie = await response.json();
 
-    poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    poster.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
     title.textContent = movie.title;
     year.textContent = movie.release_date;
     genre.textContent = movie.genres.map(g => g.name).join(", ");
-    rating.textContent = movie.vote_average;
-    description.textContent = movie.overview;
+    rating.textContent = movie.vote_average.toFixed(1); 
+
+    const fullText = movie.overview || 'No description availabel.';
+    const shortText = fullText.slice(0, 100);
+    description.textContent = shortText + "...";
+
+    let expanded = false;
+    moreBtn.addEventListener("click", function(){
+
+    if(!expanded){
+        description.textContent = fullText;
+        moreBtn.textContent = "Less";
+        expanded = true;
+
+    }else{
+        description.textContent = shortText + "...";
+        moreBtn.textContent = "More";
+        expanded = false;
+    }
+});
+
+    return movie
 }
+
+console.log(getMovieDetails())
 
 async function getMovieCast() {
 
@@ -49,11 +73,8 @@ async function getMovieCast() {
             <h3>${actor.name}</h3>
             <p>${actor.character}</p>
         </div>
-
     `;
-
 });
-   
 }
 
 async function getMovieTrailer() {
@@ -75,11 +96,10 @@ async function getMovieTrailer() {
              document.body.style.overflow = "hidden";
         });
 
-    } else {
+    } else  {
 
         trailerButton.textContent = "Trailer Not Available";
         trailerButton.disabled = true;
-
     }
 
     closeTrailer.addEventListener("click", function () {
@@ -87,10 +107,9 @@ async function getMovieTrailer() {
         trailerFrame.src = "";
          document.body.style.overflow = "auto";
     });
-
-    
-
 }
+
+
 getMovieTrailer();
 getMovieCast();
 getMovieDetails();

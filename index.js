@@ -7,6 +7,9 @@ const searchResults = document.getElementById("search-results");
 const movieContainer = document.getElementById("movie-container")
 
 
+
+
+
 async function getPopularMovies() {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
@@ -40,7 +43,7 @@ async function getTopRatedTv() {
 
     data.results.forEach (function(tv) {
         tvContainer.innerHTML += `
-        <div class="names top-rated">
+        <div class="names">
         <a href="movie-details.html?id=${tv.id}">
         <img src="https://image.tmdb.org/t/p/w500${tv.poster_path}" alt="${tv.name}" >
         <p>${tv.name}</p>
@@ -62,6 +65,7 @@ async function getMovieDiscover() {
     );
 
     const data = await response.json();
+    console.log(typeof(data.results), data.results)
 
     data.results.forEach (function(animation) {
         animationContainer.innerHTML += `
@@ -138,15 +142,12 @@ async function getHeroSection() {
 
     const data = await response.json();
 
-    data.results.slice(0, 15).forEach(function(hero) {
+    data.results.slice(0, 20).forEach(function(hero) {
         heroSlider.innerHTML += `
         <div class="hero-slide"
         style="background-image:url(https://image.tmdb.org/t/p/original${hero.backdrop_path})">
-
         <div class="hero-content">
-
-       <h1>${hero.title}</h1>
-
+       <h1 class="headerss">${hero.title}</h1>
        </div>
        </div>
       `;
@@ -154,7 +155,6 @@ async function getHeroSection() {
 
 
     let currentSlide = 0;
-
     setInterval(() => {
 
         currentSlide++;
@@ -170,7 +170,7 @@ async function getHeroSection() {
 
     },5000);
 
-    console.log(data);
+    console.log(heroSlider.children.length)
 
 }
 

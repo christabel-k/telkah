@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b0b0b;
+  color: #fff;
+  font-family: Arial, "Roboto", sans-serif;
+}
+
+#movie-poster {
+  width: 320px;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  transition: 0.4s;
+  
+}
+
+.whole-container {
+  padding: 22px;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+#movie-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.genre p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.movie-info p {
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #cfcfcf;
+}
+
+.movie-info strong {
+  color: #fff;
+}
+
+#movie-description {
+  margin-top: 3rem;
+  line-height: 1.9;
+  font-size: 17px;
+  max-width: 900px;
+  color: #d5d5d5;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+#cast-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.cast-card {
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+}
+
+.cast-card img {
+  width: 250%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cast-card h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.cast-cast {
+  margin-top: 10rem;
+}
+
+.cast-card p {
+  color: #a7a7a7;
+  font-size: 14px;
+}
+
+.trailer-container {
+  margin-top: 1rem;
+}
+
+#watch-trailer {
+  margin-top: 2rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background: #e50914;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#watch-trailer:hover {
+  background: #b20710;
+}
+
+#trailer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.trailer-box {
+  width: 90%;
+  max-width: 900px;
+  position: relative;
+}
+
+#trailer-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
+}
+
+#close-trailer {
+  position: absolute;
+  right: -10px;
+  top: -45px;
+  background: #e50914;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#search-input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background: #b6b5b5;
+  font-size: 14px;
+  width: 80%;
+  cursor: pointer;
+  backdrop-filter: blur(15px);
+  color: white;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.back-btn{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  fill: white;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.back-btn
+svg {
+  width: 30px;
+  height: auto;
+  fill: white;
+  position: absolute;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
+}
+
+#search-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.names {
+  margin-top: 90px;
+}
+
+.names a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.names img {
+  width: 25%;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.movie-details p {
+  font-family: "Inter",sans-serif;
+  font-size: 12px;
+}
+
+.genre {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#movie-title h1 {
+  font-size: 6px;
+}
+
+#movie-description {
+  line-height: 1.5;
+  width: 100%;
+  display: inline;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+
+}
+
+.ds {
+  display: block;
+  margin-top: 2rem;
+}
+
+#more-btn {
+  color: gainsboro;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+#more-btn:hover{
+  text-decoration: underline;
+}
+
+#movie-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+#movie-poster img{
+  width: 100%;
+}
+
+
+@media (max-width: 900px) {
+  .movie-details {
+    flex-direction: column;
+  }
+
+  .movie-details h3 {
+  font-size: 16px;
+ }
+
+ #movie-poster {
+  width: 100%;
+  height: auto;
+ }
+
+ #movie-poster img{
+  width: 50%;
+  height: auto;
+ }
+
+  #movie-title {
+    font-size: 26px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.movie-title h1 {
+  font-size: 2px;
+}
+
+#movie-year 
+#movie-genre
+#movie-rating, span {
+  font-size: 12px;
+}
+
+#cast-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.cast-card {
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+}
+
+.cast-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cast-card h3 {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.cast-card p {
+  color: #a7a7a7;
+  font-size: 10px;
+}
+
+}
