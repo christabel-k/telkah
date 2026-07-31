@@ -69,8 +69,8 @@ body {
 
 .hero-content h1{
     font-size:2rem;
-    margin-bottom:60px;
-    margin-left: 30px;
+    margin-bottom:40px;
+    margin-left: 10px;
 }
 
 .whole-container {
@@ -195,7 +195,7 @@ p img {
     justify-content:flex-start;
     gap: 1rem;
     align-items: flex-start;
-    padding: 8px 15px;
+    padding: 3px 15px;
     position: fixed;
     top: 0;
     left: 0;
@@ -266,11 +266,11 @@ p img {
     margin-top: 0;
     width:100%;
     padding: 0;
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 .hero-slide{
-    height:45vh;
+    height:35vh;
     padding:10px;
     width: 100%;
     flex: 0 0 100%;
@@ -278,16 +278,12 @@ p img {
 
 #hero-slider {
     width: 100%;
-    height: 50vh;
+    height: 30vh;
     margin: 0;
 }
 
 .hero-content h1{
-    font-size: 22px;
-}
-
-.hero-content p{
-    font-size:14px;
+    font-size: 18px;
 }
 
 .names {
@@ -295,6 +291,7 @@ p img {
     text-align: center;
     height: auto;
     width: 100%;
+
 }
 
 .names a {
@@ -306,7 +303,7 @@ p img {
 
 .names img {
     width: 100%;
-    height: 70%;
+    height: 60%;
 }
 
 .names, p {
@@ -314,7 +311,7 @@ p img {
 }
 
 .movie-row{
-    height: 100px;
+    height: 20px;
     margin-bottom: 15rem;
 }
 
